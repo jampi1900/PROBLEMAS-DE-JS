@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROBLEMA 1</title>
+</head>
+<body>
+
+    <style>
+        .grid {
+            margin: 10px auto;
+            padding: 10px;
+            outline: 2px solid black;
+            border-radius: 10px;
+            width: 90%;
+        }
+
+        h1{
+            text-align: center;
+        }
+
+        form {
+            display: grid;
+            gap: 10px;
+            margin: 0px auto;
+            width: 400px;
+        
+
+        }
+
+        input,select {
+            padding: 10px;
+        }
+
+        #botton {
+            margin: 0px auto;
+            width: 200px;
+            background-color: orangered;
+            padding: 10px;
+            font-size: bold;
+            color: #fff;
+        }
+    </style>
+    <div class = "grid">
+
+        <div class = contenido>
+            <h1>PROBLEMA 1</h1>
+            <p class = "problema">Realizar una funcion que nos permita relaizar las 
+                4 operaciones aritmeticas, es decir nos permita sumas restar dividir y multiplicar. 
+                La funcion debe recibir 3 parametros, dos de ellos deben ser los valores (a,b) y 
+                uno el nombre de la operacion en minusculas si el parametro de la operacion no es valido mande 
+                un error personalizado a la consola</p>
+        </div>
+
+        <form >
+
+            <input type="number" id="numero1" placeholder="Escriba el primer numero" required>
+            <input type="number" id="numero2" placeholder="Escriba el segundo numero" required>
+            <select name="operacion" id="seleccion_operacion" required>
+                <option value="1">Sumar</option>
+                <option value="2">Restar</option>
+                <option value="3">Dividir</option>
+                <option value="4">Multiplicar</option>
+            </select>
+            <button id = "botton" type = "button" >Realizar Operacion</button>
+
+        </form>
+       
+
+    </div>
+
+    <script>
+     
+        let botton= document.querySelector('#botton');//OBTENGO EL BOTTON
+        botton.addEventListener("click",obtener_valores,false);//CUADNO SE DE CLICK LLMAR A LA FUNCION
+
+        function obtener_valores(){
+            a = parseFloat(document.querySelector('#numero1').value);
+            b = parseFloat(document.querySelector('#numero2').value);
+            c = document.querySelector('#seleccion_operacion').value;
+            let respuesta = operaciones(a,b,c);
+            alert(respuesta);
+            
+        }
+
+        function operaciones(a,b,ope){
+            switch(ope){
+                case "1" :  //suma
+                    return a + b;
+                break;
+                case "2" :  //resta
+                    return a - b;
+                break;
+                case "3" :  //division
+                    return a / b;
+                break;
+                case "4" :  //multiplicacion
+                    return a * b;
+                break;
+                default :
+                   return "No valido";
+                break;
+                    
+            }
+
+        }
+       
+
+     
+
+    </script>
+
+    
+</body>
+</html>
